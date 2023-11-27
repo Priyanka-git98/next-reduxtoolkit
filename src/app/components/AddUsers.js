@@ -12,10 +12,7 @@ export default function AddUsers(){
     }
     return(<div className="add-user">
         <h3>Add Users</h3>
-        <input type="text"
-         className="add-user-input"
-         onChange={(e)=>setName(e.target.value)}
-          placeholder="Add New User" />
+        <input type="text" className="add-user-input" onChange={(e)=>setName(e.target.value)} placeholder="Add New User" />
         <button onClick={userDispatch} className="add-user-btn">Add User</button>
         <Link href="/removeuser" >Remove User</Link>
         <br />

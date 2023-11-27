@@ -1,4 +1,4 @@
-const { createSlice, nanoid, current, createAsyncThunk } = require("@reduxjs/toolkit");
+import { createSlice, nanoid, current, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
     userAPIData: [],

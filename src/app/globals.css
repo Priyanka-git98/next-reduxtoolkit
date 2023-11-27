@@ -10,6 +10,7 @@
   margin-top: 10px;
   padding-left: 50px;
   border: 1px solid orange;
+  overflow: scroll;
 }
 .add-user-input{
   width: 250px;

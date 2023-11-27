@@ -1,20 +1,25 @@
 "use client"
-import { useDispatch, useSelector } from "react-redux"
-import { removeUser } from "../redux/slice";
+import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux";
+import { addTodos } from "../redux/todoSlice";
 
-export default function DisplayUsers(){
-    const userData= useSelector((data)=>data.usersData.users);
-    const dispatch=useDispatch();
-    console.log(userData);
-    return(<div className="display-user">
-        <h3>User List</h3>
+export default function Page(){
+   const [todo,setTodo] = useState("");
+   const todoData=useSelector((data)=>data.todosData.todos);
+
+   const dispatch=useDispatch();
+    return(
+    <div>
+        <h3>Add todo</h3>
+        <input type="text" onChange={(e)=> setTodo(e.target.value)} placeholder="add new task"/>
+        <button onClick={()=>dispatch(addTodos(todo))}>Add todo</button>
+        <h4>Todo List</h4>
         {
-            userData.map((item)=>(
-                <div  key={item.id}  className="user-item">
-                    <span>{item.name}</span>
-                    <button onClick={()=>dispatch(removeUser(item.id))}>Remove</button>
-                </div>
+            todoData.length && todoData.map((item)=>(
+                <h6 key={item.id} >{item.name}</h6>
             ))
         }
-    </div>)
+        
+        </div>
+        )
 }
